@@ -13,22 +13,7 @@
         <h1>USERS</h1>
     </header>
     <button id="btnOpenModalRegister">REGISTER</button>
-    <main>
-        <div class="card">
-            <div class="cardFooter"></div>
-        </div>
-        <div class="card">
-            <div class="cardFooter"></div>
-        </div>
-        <div class="card">
-            <div class="cardFooter"></div>
-        </div>
-        <div class="card">
-            <div class="cardFooter"></div>
-        </div>
-        <div class="card">
-            <div class="cardFooter"></div>
-        </div>
+    <main id="all_cards">
     </main>
     <footer>
     </footer>
@@ -38,15 +23,15 @@
                 <h2>REGISTER</h2>
             </div>
             <div id="add_img">
-
+                <input id="file_input" type="file" accept=".jpg, .jpeg, .png">
             </div>
             <form action="">
                 <label for="">Name:</label>
-                <input type="text">
-                <label for="">Email:</label>
-                <input type="text">
+                <input id="name" type="text">
+                <label  for="">Email:</label>
+                <input id="email" type="text">
                 <label for="">Password:</label>
-                <input type="text">
+                <input id="password" type="password">
             </form>
             <div id="div_buttons">
                 <button id="btn_cancel">CANCEL</button>
