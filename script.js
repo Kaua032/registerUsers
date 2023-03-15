@@ -15,11 +15,17 @@ btn_open.addEventListener("click", () =>{
 })
 btn_close.addEventListener("click", () =>{
     modal.style.display = "none"
+    nome.value = ""
+    email.value = ""
+    password.value = ""
 })
 
 window.onclick = function(click) {
     if (click.target == modal) {
       modal.style.display = "none";
+      nome.value = ""
+      email.value = ""
+      password.value = ""
     }
 };
 
@@ -52,8 +58,8 @@ register.addEventListener("click", () =>{
   console.log(return_img)
   modal.style.display = "none"
   main.innerHTML += 
-  `<div class='card'>
-  <div class='informations'>${return_img}
+  `<div class='card'> 
+  <div class='informations'>
       <h3>Name:</h3>
       <p>${nome.value}</p>
       <h3>Email:</h3>

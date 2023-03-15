@@ -61,20 +61,27 @@ main{
     flex-direction: column;
     justify-content: space-between;
 }
+.card:hover{
+    width: 240px;
+    height: 300px;
+}
 .cardFooter{
-    width: 200px;
+    width: 100%;
     height: 26px;
     background: #20333C;
     border-radius: 0px 0px 15px 15px;
+    position: relative;
 }
 .informations{
     display: flex;
     flex-direction: column;
     padding: 15px 0px 0px 15px;
+    overflow: auto;
 }
 .informations p {
     display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    word-break: break-all;
 }
 #modal_bg{
     display: none;
