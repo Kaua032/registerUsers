@@ -22,7 +22,9 @@ window.onclick = function(click) {
     }
 };
 
-upload_img.addEventListener("change", (e) =>{
+upload_img.addEventListener("change", createImage)
+
+function createImage(e){
   const inputTarget = e.target
   const file = inputTarget.files[0]
   if(file){
@@ -36,6 +38,7 @@ upload_img.addEventListener("change", (e) =>{
       img.classList.add('picture_img')
       span_image.innerHTML = ""
       span_image.appendChild(img)
+      return img
     })
 
     reader.readAsDataURL(file)
@@ -44,10 +47,7 @@ upload_img.addEventListener("change", (e) =>{
     span_image.innerHTML = "Image"
 
   }
-  return file
-})
-
-
+}
 
 
 
@@ -56,6 +56,7 @@ upload_img.addEventListener("change", (e) =>{
 
 
 register.addEventListener("click", () =>{
+  console.log(createImage())
   modal.style.display = "none"
   main.innerHTML += 
   `<div class='card'>
@@ -74,24 +75,4 @@ register.addEventListener("click", () =>{
       email.value = ""
       password.value = ""
 
-
-  if(file){
-    const reader = new FileReader()
-
-    reader.addEventListener('load', (e) => {
-      const readerTarget = e.target
-
-      const img = document.createElement('img')
-      img.src = readerTarget.result
-      img.classList.add('picture_img')
-      span_image.innerHTML = ""
-      span_image.appendChild(img)
-    })
-
-    reader.readAsDataURL(file)
-  }
-  else{
-    span_image.innerHTML = "Image"
-
-  }
 })
