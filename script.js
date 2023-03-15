@@ -2,6 +2,7 @@ let btn_open = document.getElementById("btnOpenModalRegister")
 let btn_close = document.getElementById("btn_cancel")
 let modal = document.getElementById("modal_bg")
 let upload_img = document.getElementById("file_input")
+let span_image = document.getElementById("picture_image")
 let register = document.getElementById("btn_register")
 let nome = document.getElementById("name")
 let email = document.getElementById("email")
@@ -21,6 +22,39 @@ window.onclick = function(click) {
     }
 };
 
+upload_img.addEventListener("change", (e) =>{
+  const inputTarget = e.target
+  const file = inputTarget.files[0]
+  if(file){
+    const reader = new FileReader()
+
+    reader.addEventListener('load', (e) => {
+      const readerTarget = e.target
+
+      const img = document.createElement('img')
+      img.src = readerTarget.result
+      img.classList.add('picture_img')
+      span_image.innerHTML = ""
+      span_image.appendChild(img)
+    })
+
+    reader.readAsDataURL(file)
+  }
+  else{
+    span_image.innerHTML = "Image"
+
+  }
+  return file
+})
+
+
+
+
+
+
+
+
+
 register.addEventListener("click", () =>{
   modal.style.display = "none"
   main.innerHTML += 
@@ -32,11 +66,32 @@ register.addEventListener("click", () =>{
       <p>${email.value}</p>
       <h3>Senha: </h3>
       <p>${password.value}</p>
-  </div>
-  <div class='cardFooter'>
-  </div>
-</div>`;
-nome.value = ""
-email.value = ""
-password.value = ""
+      </div>
+      <div class='cardFooter'>
+      </div>
+      </div>`;
+      nome.value = ""
+      email.value = ""
+      password.value = ""
+
+
+  if(file){
+    const reader = new FileReader()
+
+    reader.addEventListener('load', (e) => {
+      const readerTarget = e.target
+
+      const img = document.createElement('img')
+      img.src = readerTarget.result
+      img.classList.add('picture_img')
+      span_image.innerHTML = ""
+      span_image.appendChild(img)
+    })
+
+    reader.readAsDataURL(file)
+  }
+  else{
+    span_image.innerHTML = "Image"
+
+  }
 })
